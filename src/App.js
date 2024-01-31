@@ -14,9 +14,9 @@ export const App = () => {
 
 
       <Route path="*" element={
-        <Authorized>
+        
           <ApplicationViews />
-        </Authorized>
+        
       } />
       
     </Routes>

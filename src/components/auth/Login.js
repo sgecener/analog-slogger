@@ -18,6 +18,8 @@ export const Login = () => {
           "analog_user",
           JSON.stringify({
             id: user.id,
+            name: user.name,
+            address: user.address,
             staff: user.staff,
           })
         )

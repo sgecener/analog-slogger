@@ -1,8 +1,9 @@
+
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 
-export const AdminNav = () => {
+export const NavBar = () => {
   const navigate = useNavigate()
   
   return (
@@ -11,7 +12,7 @@ export const AdminNav = () => {
         <Link to="/catalog">Repair Catalog</Link>
       </li>
       <li className="navbar-item">
-        <Link to="/c">Active Repairs</Link>
+        <Link to="/repairs">Active Repairs</Link>
       </li>
       
       {localStorage.getItem("analog_user") ? (
@@ -28,7 +29,9 @@ export const AdminNav = () => {
           </Link>
         </li>
       ) : (
-        ""
+        <li className="navbar-item">
+        <Link to="/login">Login</Link>
+      </li>
       )}
     </ul>
   );
