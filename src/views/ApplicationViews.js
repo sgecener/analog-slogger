@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavBar } from "../components/nav/NavBar";
 import { ActiveRepairs } from "../components/repairs/ActiveRepairs";
 import { Route, Routes, Outlet } from "react-router-dom"
+import { CameraCatalog } from "../components/cameras/CameraCatalog";
 
 
 export const ApplicationViews = () => {
@@ -25,8 +26,10 @@ export const ApplicationViews = () => {
           </>
         }
       />
-        <Route path="repairs" element={<ActiveRepairs currentUser={ currentUser }/>} />
-        <Route path="catalog"  />
+        <Route path="repairs">
+          <Route index element={<ActiveRepairs currentUser={ currentUser }/>} />
+        </Route>
+        <Route path="catalog" element={<CameraCatalog currentUser={currentUser}/>} />
         
     </Routes>
   )

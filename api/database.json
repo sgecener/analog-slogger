@@ -90,7 +90,7 @@
     "repairs": [
       {
         "id": 1,
-        "userId": 1,
+        "userId": 4,
         "cameraId": 1,
         "description": "Shutter stuck",
         "rush": false,
@@ -106,7 +106,7 @@
       },
       {
         "id": 3,
-        "userId": 3,
+        "userId": 4,
         "cameraId": 5,
         "description": "Fungus in viewfinder",
         "rush": false,

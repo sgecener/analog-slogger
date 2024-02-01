@@ -1,10 +1,7 @@
-
 import { Route, Routes } from "react-router-dom";
-import { Login } from './components/auth/Login'
-import { Register } from './components/auth/Register'
-import { Authorized } from "./views/Authorized";
+import { Login } from "./components/auth/Login";
+import { Register } from "./components/auth/Register";
 import { ApplicationViews } from "./views/ApplicationViews";
-
 
 export const App = () => {
   return (
@@ -12,13 +9,7 @@ export const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-
-      <Route path="*" element={
-        
-          <ApplicationViews />
-        
-      } />
-      
+      <Route path="*" element={<ApplicationViews />} />
     </Routes>
   );
 };

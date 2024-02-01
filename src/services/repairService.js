@@ -1,11 +1,11 @@
 
 
 
-export default function getRepairs() {
-  return fetch("http://localhost:8088/repairs").then((res) => res.json);
+export const getAllRepairs = () => {
+  return fetch("http://localhost:8088/repairs?_expand=user&_expand=camera").then((res) => res.json());
 }
 
-export default function postRepair(repair) {
+export const postRepair = (repair) => {
     return fetch("http://localhost:8088/repairs" , {
         method: "POST",
         headers: {
@@ -15,13 +15,19 @@ export default function postRepair(repair) {
     }).then((res) => res.json);
   }
 
-  export default function editRepair() {
-    return fetch("http://localhost:8088/repairs").then((res) => res.json);
+  export const editRepair = (repair) => {
+    return fetch(`http://localhost:8088/repairs/${repair.id}` , {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(repair),
+    });
   }
 
-  export default function deleteRepair(id) {
+  export const deleteRepair = (id) => {
     return fetch(`http://localhost:8088/repairs/${id}`, {
         method: "DELETE"
     }
-    ).then((res) => res.json);
+    ).then((res) => res.json());
   }

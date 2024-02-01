@@ -1,6 +1,6 @@
 
 
 
-export const ActiveUserRepairs = () => {
+export const ActiveUserRepairs = ({currentUser}) => {
     
 }
