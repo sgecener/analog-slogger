@@ -1,117 +1,116 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "Gerald Ford",
-        "email": "gford@aol.com",
-        "address": "6 Tanglewood Dr",
-        "staff": true
-      },
-      {
-        "id": 2,
-        "name": "Alice Johnson",
-        "email": "ajohnson@gmail.com",
-        "address": "123 Main St",
-        "staff": false
-      },
-      {
-        "id": 3,
-        "name": "Bob Thompson",
-        "email": "bthompson@yahoo.com",
-        "address": "45 Oak Avenue",
-        "staff": true
-      },
-      {
-        "id": 4,
-        "name": "Emily Davis",
-        "email": "edavis@hotmail.com",
-        "address": "789 Elm Street",
-        "staff": false
-      }
-    ],
-    "cameras": [
-      {
-        "id": 1,
-        "userId": 1,
-        "name": "Canon AE-1",
-        "type": "35mm Film",
-        "photo": "canon_ae1.jpg",
-        "price": 78
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "name": "Nikon FM2",
-        "type": "35mm Film",
-        "photo": "nikon_fm2.jpg",
-        "price": 80
-      },
-      {
-        "id": 3,
-        "userId": 3,
-        "name": "Pentax K1000",
-        "type": "35mm Film",
-        "photo": "pentax_k1000.jpg",
-        "price": 60
-      },
-      {
-        "id": 4,
-        "userId": 4,
-        "name": "Leica M6",
-        "type": "35mm Film",
-        "photo": "leica_m6.jpg",
-        "price": 90
-      },
-      {
-        "id": 5,
-        "userId": 1,
-        "name": "Hasselblad 500CM",
-        "type": "120mm Medium Format",
-        "photo": "sony_a7iii.jpg",
-        "price": 120
-      },
-      {
-        "id": 6,
-        "userId": 2,
-        "name": "Olympus Trip 35",
-        "type": "Point and Shoot",
-        "photo": "canon_eos_r5.jpg",
-        "price": 50
-      },
-      {
-        "id": 7,
-        "userId": 3,
-        "name": "Mamiya RB67",
-        "type": "120mm Medium Format",
-        "photo": "nikon_z6.jpg",
-        "price": 100
-      }
-    ],
-    "repairs": [
-      {
-        "id": 1,
-        "userId": 4,
-        "cameraId": 1,
-        "description": "Shutter stuck",
-        "rush": false,
-        "completed": false
-      },
-      {
-        "id": 2,
-        "userId": 2,
-        "cameraId": 3,
-        "description": "Light leaks",
-        "rush": true,
-        "completed": false
-      },
-      {
-        "id": 3,
-        "userId": 4,
-        "cameraId": 5,
-        "description": "Fungus in viewfinder",
-        "rush": false,
-        "completed": true
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "id": 1,
+      "name": "Gerald Ford",
+      "email": "gford@aol.com",
+      "address": "6 Tanglewood Dr",
+      "staff": true
+    },
+    {
+      "id": 2,
+      "name": "Alice Johnson",
+      "email": "ajohnson@gmail.com",
+      "address": "123 Main St",
+      "staff": false
+    },
+    {
+      "id": 3,
+      "name": "Bob Thompson",
+      "email": "bthompson@yahoo.com",
+      "address": "45 Oak Avenue",
+      "staff": true
+    },
+    {
+      "id": 4,
+      "name": "Emily Davis",
+      "email": "edavis@hotmail.com",
+      "address": "789 Elm Street",
+      "staff": false
+    }
+  ],
+  "cameras": [
+    {
+      "id": 1,
+      "userId": 4,
+      "name": "Canon AE-1",
+      "type": "35mm Film",
+      "photo": "canon_ae1.jpg",
+      "price": 78
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "name": "Nikon F3",
+      "type": "35mm Film",
+      "photo": "nikon_fm2.jpg",
+      "price": 78
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "name": "Pentax K1000",
+      "type": "35mm Film",
+      "photo": "pentax_k1000.jpg",
+      "price": 60
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "name": "Leica M6",
+      "type": "35mm Film",
+      "photo": "leica_m6.jpg",
+      "price": 90
+    },
+    {
+      "id": 5,
+      "userId": 4,
+      "name": "Hasselblad 500CM",
+      "type": "120mm Medium Format",
+      "photo": "sony_a7iii.jpg",
+      "price": 120
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "name": "Olympus Trip 35",
+      "type": "Point and Shoot",
+      "photo": "canon_eos_r5.jpg",
+      "price": 50
+    },
+    {
+      "id": 7,
+      "userId": 4,
+      "name": "Mamiya RB67",
+      "type": "120mm Medium Format",
+      "photo": "nikon_z6.jpg",
+      "price": 100
+    }
+  ],
+  "repairs": [
+    {
+      "id": 1,
+      "userId": 2,
+      "cameraId": 1,
+      "description": "Shutter stuck",
+      "rush": false,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "userId": 4,
+      "cameraId": 3,
+      "description": "Light leaks",
+      "rush": true,
+      "completed": false
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "cameraId": 5,
+      "description": "Fungus in viewfinder",
+      "rush": false,
+      "completed": false
+    }
+  ]
+}
