@@ -98,11 +98,7 @@
     },
     {
       "id": 2,
-      "userId": 4,
-      "cameraId": 3,
-      "description": "Light leaks",
-      "rush": true,
-      "completed": false
+      "description": "Light leaks"
     },
     {
       "id": 3,

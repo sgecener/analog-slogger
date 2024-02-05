@@ -1,13 +1,12 @@
-import { useEffect, useReducer, useState } from "react";
-import { deleteRepair, getAllRepairs } from "../../services/repairService";
+import { useEffect, useState } from "react";
+import { getAllRepairs } from "../../services/repairService";
 import { getAllCameras } from "../../services/cameraService";
-import { useNavigate } from "react-router-dom";
 import { CustomerRepairs } from "./CustomerRepairs";
 
 export const ActiveUserRepairs = ({ currentUser }) => {
   const [allRepairs, setAllRepairs] = useState([]);
   const [allCameras, setAllCameras] = useState([]);
-  const [user, setUser] = useState([]);
+
 
   const userRepairs = allRepairs.filter((r) => r.userId == currentUser.id);
 

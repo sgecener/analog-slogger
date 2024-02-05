@@ -5,6 +5,10 @@ export const getAllRepairs = () => {
   return fetch("http://localhost:8088/repairs?_expand=user&_expand=camera").then((res) => res.json());
 }
 
+export const getRepairById = (repairId) => {
+  return fetch(`http://localhost:8088/repairs/${repairId}`).then((res) => res.json())
+}
+
 export const postRepair = (repair) => {
     return fetch("http://localhost:8088/repairs" , {
         method: "POST",

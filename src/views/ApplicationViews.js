@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import { NavBar } from "../components/nav/NavBar";
 import { ActiveRepairs } from "../components/repairs/ActiveRepairs";
-import { Route, Routes, Outlet } from "react-router-dom"
+import { Route, Routes, Outlet } from "react-router-dom";
 import { CameraCatalog } from "../components/cameras/CameraCatalog";
 import { RepairForm } from "../components/repairs/RepairForm";
-
-
+import { EditRepairForm } from "../components/repairs/EditRepairForm";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
- 
 
   useEffect(() => {
     const localSloggerUser = localStorage.getItem("analog_user");
@@ -17,9 +15,6 @@ export const ApplicationViews = () => {
 
     setCurrentUser(sloggerUserObj);
   }, []);
-
-  
-  
 
   return (
     <Routes>
@@ -32,13 +27,18 @@ export const ApplicationViews = () => {
           </>
         }
       />
-        <Route path="repairs">
-          <Route index element={<ActiveRepairs currentUser={ currentUser }/>} />
-
-        </Route>
-        <Route path="catalog" element={<CameraCatalog   currentUser={currentUser}/>} />
-        <Route path="form" element={<RepairForm  currentUser={currentUser}/>}/>
-        
+      <Route path="repairs">
+        <Route index element={<ActiveRepairs currentUser={currentUser} />} />
+      </Route>
+      <Route
+        path="catalog"
+        element={<CameraCatalog currentUser={currentUser} />}
+      />
+      <Route path="form" element={<RepairForm currentUser={currentUser} />} />
+      <Route
+        path="editRepair/:repairId"
+        element={<EditRepairForm currentUser={currentUser} />}
+      />
     </Routes>
-  )
+  );
 };
