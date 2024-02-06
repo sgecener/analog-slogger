@@ -17,7 +17,8 @@ export const EditRepairForm = () => {
 
  
 
-  const handleEdit = () => {
+  const handleEdit = (e) => {
+    e.preventDefault();
 
     const editedRepair = {
         id: repair.id,
