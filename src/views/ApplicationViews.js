@@ -5,6 +5,7 @@ import { Route, Routes, Outlet } from "react-router-dom";
 import { CameraCatalog } from "../components/cameras/CameraCatalog";
 import { RepairForm } from "../components/repairs/RepairForm";
 import { EditRepairForm } from "../components/repairs/EditRepairForm";
+import { Welcome } from "../components/Welcome";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -26,19 +27,24 @@ export const ApplicationViews = () => {
             <Outlet />
           </>
         }
-      />
-      <Route path="repairs">
-        <Route index element={<ActiveRepairs currentUser={currentUser} />} />
+      >
+        <Route index element={<Welcome />} />
+        <Route path="repairs">
+          <Route index element={<ActiveRepairs currentUser={currentUser} />} />
+          <Route
+            path=":repairId"
+            element={<EditRepairForm currentUser={currentUser} />}
+          />
+        </Route>
+        <Route
+          path="catalog"
+          element={<CameraCatalog currentUser={currentUser} />}
+        />
+        <Route
+          path="form/:cameraId"
+          element={<RepairForm currentUser={currentUser} />}
+        />
       </Route>
-      <Route
-        path="catalog"
-        element={<CameraCatalog currentUser={currentUser} />}
-      />
-      <Route path="form" element={<RepairForm currentUser={currentUser} />} />
-      <Route
-        path="editRepair/:repairId"
-        element={<EditRepairForm currentUser={currentUser} />}
-      />
     </Routes>
   );
 };

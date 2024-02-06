@@ -15,14 +15,17 @@ export const EditRepairForm = () => {
     });
   }, [repairId]);
 
-  
+ 
 
   const handleEdit = () => {
 
     const editedRepair = {
         id: repair.id,
-        description: repair.description
-        
+        userId: repair.userId,
+        cameraId: repair.cameraId,
+        description: repair.description,
+        rush: repair.rush,
+        completed: repair.completed
     }
 
     editRepair(editedRepair).then(() => {
@@ -51,12 +54,6 @@ export const EditRepairForm = () => {
           />
         </div>
       </fieldset>
-      {/* <fieldset>
-        <div>
-          <label>Rush Order +$50</label>
-          <input type="checkbox" value="" onChange={""} required />
-        </div>
-      </fieldset> */}
       <fieldset>
         <div className="form-group">
           <button className="form-btn btn-secondary" onClick={handleEdit}>Submit</button>

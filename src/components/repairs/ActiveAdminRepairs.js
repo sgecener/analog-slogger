@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 import { getAllRepairs } from "../../services/repairService";
 import { Repairs } from "./Repairs";
+import { getUserbyStaff } from "../../services/userService";
 
 export const ActiveAdminRepairs = ({ currentUser }) => {
   const [allRepairs, setAllRepairs] = useState([]);
-  const [showRush, setShowRush] = useState(false);
-  const [filteredRepairs, setFilteredRepairs] = useState([]);
+  const [staffMembers, setStaffMembers] = useState([]);
+
+  
+
+  useEffect(() => {
+    getUserbyStaff().then((data) => {
+      setStaffMembers(data);
+    });
+  }, [currentUser]);
 
   const getAndSetRepairs = () => {
     getAllRepairs().then((repairsArr) => {
@@ -17,25 +25,15 @@ export const ActiveAdminRepairs = ({ currentUser }) => {
     getAndSetRepairs();
   }, [currentUser]);
 
-  useEffect(() => {
-    if (showRush) {
-      const rushOrders = allRepairs.filter((repair) => repair.rush === true);
-      setFilteredRepairs(rushOrders);
-    } else {
-      setFilteredRepairs(allRepairs);
-    }
-  }, [showRush, allRepairs]);
-
   return (
     <div className="tickets-container">
-      <h2>Repairs</h2>
+      <h2 style={{ margin: 30 }}>Repairs</h2>
 
       <article className="tickets">
-        {filteredRepairs.map((repairObj) => {
+        {allRepairs.map((repairObj) => {
           return (
             <Repairs
-              setShowRush={setShowRush}
-              setFilteredRepairs={setFilteredRepairs}
+              staffMembers={staffMembers}
               repair={repairObj}
               key={repairObj.id}
               currentUser={currentUser}

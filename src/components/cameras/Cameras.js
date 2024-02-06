@@ -8,7 +8,7 @@ export const Cameras = ({ camera }) => {
 
     const handleClick = () => {
 
-        navigate('/form')
+        navigate(`/form/${camera.id}`)
     }
 
     return (

@@ -39,7 +39,7 @@ export const ActiveUserRepairs = ({ currentUser }) => {
         {userRepairs.map((repairObj) => {
           let camera = allCameras.filter((cam) => cam.id == repairObj.cameraId);
           return (
-            <CustomerRepairs camera={camera} repairObj={repairObj} renderRepairs={renderRepairs}/>
+            <CustomerRepairs camera={camera} repairObj={repairObj} key={repairObj.id} renderRepairs={renderRepairs}/>
           );
         })}
       </article>

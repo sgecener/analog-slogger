@@ -4,29 +4,31 @@
       "id": 1,
       "name": "Gerald Ford",
       "email": "gford@aol.com",
-      "address": "6 Tanglewood Dr",
       "staff": true
     },
     {
       "id": 2,
       "name": "Alice Johnson",
       "email": "ajohnson@gmail.com",
-      "address": "123 Main St",
       "staff": false
     },
     {
       "id": 3,
       "name": "Bob Thompson",
       "email": "bthompson@yahoo.com",
-      "address": "45 Oak Avenue",
       "staff": true
     },
     {
       "id": 4,
       "name": "Emily Davis",
       "email": "edavis@hotmail.com",
-      "address": "789 Elm Street",
       "staff": false
+    },
+    {
+      "email": "sgecener@hotmail.com",
+      "name": "Saygin Gecener",
+      "staff": true,
+      "id": 5
     }
   ],
   "cameras": [
@@ -92,20 +94,35 @@
       "id": 1,
       "userId": 2,
       "cameraId": 1,
+      "staffId": 1,
       "description": "Shutter stuck",
       "rush": false,
-      "completed": false
+      "completed": true
     },
     {
       "id": 2,
-      "description": "Light leaks"
+      "userId": 4,
+      "staffId": 1,
+      "cameraId": 3,
+      "description": "Light leaks and slow shutter",
+      "rush": true,
+      "completed": true
     },
     {
       "id": 3,
       "userId": 4,
+      "staffId": 5,
       "cameraId": 5,
       "description": "Fungus in viewfinder",
       "rush": false,
+      "completed": true
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "cameraId": 1,
+      "description": "Light leaks and slow shutter speed: check",
+      "rush": true,
       "completed": false
     }
   ]

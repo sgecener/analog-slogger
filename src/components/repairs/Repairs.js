@@ -1,70 +1,63 @@
 import { useEffect, useState } from "react";
-import { getAllUsers } from "../../services/userService";
-import { useNavigate } from "react-router-dom";
+import { editRepair } from "../../services/repairService";
 
-export const Repairs = ({ repair, currentUser }) => {
+export const Repairs = ({ repair, currentUser, staffMembers, getAndSetRepairs }) => {
   
-  const [employees, setEmployees] = useState([]);
-  const [assignedEmployee, setAssignedEmployee] = useState({});
-    
-  const navigate = useNavigate();
+  const [filterStaff , setFilterStaff] = useState(null)
+
+  
 
   useEffect(() => {
-    getAllUsers().then((employeesArr) => {
-      if (currentUser.staff === true) {
-        setEmployees(employeesArr);
-      }
+    const technician = staffMembers.find((s) =>{ 
+        return  repair.staffId === s.id;
+      });
+      setFilterStaff(technician)
+
+  }, [staffMembers, repair])
+
+  
+
+  const handleCompleted = () => {
+    const completedRepair = {
+      id: repair.id,
+      userId: repair.userId,
+      staffId: currentUser.id,
+      cameraId: repair.cameraId,
+      description: repair.description,
+      rush: repair.rush,
+      completed: true,
+    };
+
+    editRepair(completedRepair).then(() => {
+      getAndSetRepairs();
     });
-  }, [currentUser]);
-
-
-  useEffect(() => {
-    const foundEmployee = employees.find(
-      (employee) => employee.id === repair.userId
-    );
-    setAssignedEmployee(foundEmployee);
-  }, [employees, repair]);
-
+  };
 
   return (
-    <section>
+    <section style={{ margin: 30 }}>
       <header>Order #{repair.id}</header>
       <div>{repair.camera?.name}</div>
       <div>{repair.description}</div>
       <footer>
         <div>
-          <div>Technician:</div>
-          <div>{assignedEmployee ? assignedEmployee.name : "none"}</div>
-        </div>
-        <div>
           <div>Rush Order?</div>
           <div>{repair.rush ? "Yes" : "No"}</div>
         </div>
-        {/* <div className="btn-container">
-          {assignedEmployee?.userId === currentUser.id && !repair.completed ? (
-            <button className="btn-warning" onClick={handleClose}>
-              Close
-            </button>
-          ) : (
-            ""
-          )}
-          {!currentUser.staff && (
-            <button className="btn btn-warning" onClick={handleDelete}>
-              Delete
-            </button>
-          )}
-          {!currentUser.staff && (
-            <button
-              className="btn btn-secondary"
-            //   onClick={() => {
-            //     navigate(`/tickets/edit/${ticket.id}`);
-            //   }}
-            >
-              Edit
-            </button>
-          )}
-        </div> */}
       </footer>
+      <div>
+        {!repair.completed ? (
+          <button className="btn-primary" onClick={handleCompleted}>
+            Completed
+          </button>
+        ) : (
+          <div>
+            <div>
+              Status: <strong>Completed</strong>
+            </div>
+            <div>Technician: {filterStaff ? filterStaff.name : ""}</div>
+          </div>
+        )}
+      </div>
     </section>
   );
 };

@@ -62,6 +62,9 @@ export const Login = () => {
       <section>
         <Link to="/register">Not a member yet?</Link>
       </section>
+      <div>
+      <Link to="/">Home</Link>
+      </div>
     </main>
   )
 }

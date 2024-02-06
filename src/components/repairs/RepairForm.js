@@ -1,61 +1,54 @@
 import { useEffect, useState } from "react";
 import { postRepair } from "../../services/repairService";
-import { useNavigate } from "react-router-dom";
-import { getAllCameras } from "../../services/cameraService";
+import { useNavigate, useParams } from "react-router-dom";
+import { getCameraById } from "../../services/cameraService";
 
 export const RepairForm = ({ currentUser }) => {
+  
+  const [body, setBody] = useState("");
+  const [camera, setCamera] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
 
-  const [name, setName] = useState("");
-  const [body, setBody] = useState("")
-  const [camera, setCamera] = useState({})
-  const [isChecked, setIsChecked] = useState(false)
+  const { cameraId } = useParams();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        getAllCameras().then((data) => {
-            const camObj = data[0]
-            setCamera(camObj)
-        })
-    })
-
+  useEffect(() => {
+    getCameraById(cameraId).then((data) => {
+      setCamera(data);
+    });
+  }, [cameraId]);
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    
+    event.preventDefault();
 
-    const editedRepair =  {
-        
-        
-        userId: currentUser.id,
-        cameraId: camera.id ,
-        description: body,
-        rush: false,
-        completed: false
-    }
+    const newRepair = {
+      userId: currentUser.id,
+      staffId: null,
+      cameraId: camera.id,
+      description: body,
+      rush: isChecked,
+      completed: false,
+    };
 
-    postRepair(editedRepair).then(() => {
-        navigate(`/repairs`)
-    })
-  } 
+    postRepair(newRepair).then(() => {
+      navigate(`/repairs`);
+    });
+  };
 
-  return (
-    <form >
+  return !currentUser || currentUser.staff ? (
+    <div>
+      <div>Create a user account to send a repair order!</div>
+      <div>Please :<span>&#41;</span></div>
+    </div>
+  ) : (
+    <form>
       <h2>Repair Form</h2>
-    
+
       <fieldset>
         <div className="form-group">
           <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            placeholder="Enter text..."
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
-            required
-            className="form-control"
-          />
+          <div value={camera.id}>{camera.name}</div>
         </div>
       </fieldset>
       <fieldset>
@@ -76,10 +69,9 @@ export const RepairForm = ({ currentUser }) => {
           <label>Rush Order +$50</label>
           <input
             type="checkbox"
-            value=""
+            value={isChecked}
             onChange={(event) => setIsChecked(event.target.checked)}
             required
-            
           />
         </div>
       </fieldset>

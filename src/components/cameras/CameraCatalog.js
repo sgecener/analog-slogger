@@ -1,38 +1,38 @@
-import { useEffect, useState } from "react"
-import { getAllCameras } from "../../services/cameraService"
-import { Cameras } from "./Cameras"
-import { TypeFilter } from "./CameraTypeFilter"
+import { useEffect, useState } from "react";
+import { getAllCameras } from "../../services/cameraService";
+import { TypeFilter } from "./CameraTypeFilter";
+import { Cameras } from "./Cameras";
 
 
 export const CameraCatalog = () => {
 
     const [cameras, setCameras] = useState([])
     const [filteredCameras, setFilteredCameras] = useState([]);
-    const [typeSelect, setTypeSelect] = useState({});
+    const [typeSelect, setTypeSelect] = useState("All");
     // unique types
     const types = [...new Set(cameras.map(camera => camera.type))];
 
-
-    useEffect(() => {
+    const renderCameras = () => {
         getAllCameras().then((camerasArr) => {
             setCameras(camerasArr)
         })
-    }, [])
-        
+    }
 
 
-      useEffect(() => {
-       
-        if (typeSelect != "All") {
-            console.log("entered");
-          const filteredCameras = cameras.filter(
-            (camera) => camera.type == typeSelect
-          );
-          setFilteredCameras(filteredCameras);
+    useEffect(() => {
+        renderCameras();
+    }, []);
+
+    useEffect(() => {
+        if (typeSelect !== "All") {
+            const filteredCameras = cameras.filter(
+                (camera) => camera.type === typeSelect
+            );
+            setFilteredCameras(filteredCameras);
         } else {
-          setFilteredCameras(cameras);
+            setFilteredCameras(cameras);
         }
-      }, [typeSelect, cameras]);
+    }, [typeSelect, cameras]);
 
     return (
         <section>
@@ -40,11 +40,9 @@ export const CameraCatalog = () => {
             <TypeFilter setTypeSelect={setTypeSelect} types={types} />
 
             <div>
-            {filteredCameras.map((cameraObj) => {
-                return (<Cameras camera={cameraObj} />)
-            })}
-
-            
+                {filteredCameras.map((cameraObj) => {
+                    return (<Cameras camera={cameraObj} key={cameraObj.id} renderCameras={renderCameras} />)
+                })}
             </div>
         </section>
     )

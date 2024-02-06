@@ -14,7 +14,6 @@ export const TypeFilter = ({ setTypeSelect, types }) => {
           }}
           
           >
-            <option value= "">Select Types...</option>
             <option value= "All">All Cameras</option>
             {
             

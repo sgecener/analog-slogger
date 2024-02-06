@@ -26,7 +26,7 @@ export const postRepair = (repair) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(repair),
-    });
+    }).then((res) => res.json());
   }
 
   export const deleteRepair = (id) => {

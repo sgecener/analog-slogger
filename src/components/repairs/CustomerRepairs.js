@@ -21,7 +21,7 @@ export const CustomerRepairs = ({camera, repairObj, renderRepairs}) => {
       <div>{camera[0]?.name}</div>
       <div>{repairObj.description}</div>
       <div>
-        <button className="btn-secondary" onClick={() => {navigate(`/editRepair/${repairObj.id}`)} }>Edit</button>
+        <button className="btn-secondary" onClick={() => {navigate(`/repairs/${repairObj.id}`)} }>Edit</button>
         <button className="btn-warning" onClick={handleDelete}>
           Delete
         </button>
