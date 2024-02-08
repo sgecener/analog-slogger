@@ -4,12 +4,15 @@ import { Register } from "./components/auth/Register";
 import { ApplicationViews } from "./views/ApplicationViews";
 
 export const App = () => {
-  return (
+  return (<>
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
       <Route path="*" element={<ApplicationViews />} />
     </Routes>
+    
+
+    </>
   );
 };

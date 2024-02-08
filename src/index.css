@@ -1,5 +1,7 @@
 /* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Quicksand&family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Quicksand&family=Roboto:wght@100&display=swap&family=Mukta&display=swap");
+
+
 
 /* FONTS
 font-family: "Nunito", sans-serif;
@@ -27,7 +29,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Nunito", sans-serif;
+  font-family: "Mukta", sans-serif;
 }
 
 body {
@@ -41,7 +43,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto", serif;
+  font-family: "Mukta", serif;
 }
 
 /* This prevents all the links in the app from having default underline */
@@ -98,7 +100,7 @@ button {
 }
 
 .btn-info:hover {
-  background-color: #71a500;
+  background-color: #c4e876;
 }
 
 

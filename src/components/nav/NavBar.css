@@ -1,21 +1,31 @@
+.navbar-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  
+  
+}
+
 .navbar {
     display: flex;
-    flex-wrap: nowrap;
+    flex-flow: row;
     background-color: var(--dark);
-    margin-left: 5rem;
-    width: 85%;
-    padding: 0.5rem;
+    width: 100%;
+    padding: 1rem;
     
   }
 
   .navbar-item {
-    flex-basis: 30%;
+    font-size: 20px;
+    flex-basis: 15%;
     list-style-type: none;
     text-align: center;
     color: var(--offWhite);
   }
 
   .navbar-link {
+
     text-decoration: none;
     font-family: "Quicksand", sans-serif;
     letter-spacing: 1px;
@@ -27,4 +37,8 @@
 
   .navbar-link:hover {
     color: var(--primary);
+  }
+  .navbar-item:hover {
+    color: var(--secondary);
+    background-color: gray;
   }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllRepairs } from "../../services/repairService";
 import { Repairs } from "./Repairs";
 import { getUserbyStaff } from "../../services/userService";
+import "./ActiveRepairs.css"
 
 export const ActiveAdminRepairs = ({ currentUser }) => {
   const [allRepairs, setAllRepairs] = useState([]);
@@ -26,18 +27,19 @@ export const ActiveAdminRepairs = ({ currentUser }) => {
   }, [currentUser]);
 
   return (
-    <div className="tickets-container">
-      <h2 style={{ margin: 30 }}>Repairs</h2>
+    <div>
+      <h2 style={{ margin: 30, textAlign: "center"}}>Repairs</h2>
 
-      <article className="tickets">
+      <article className="repairs-container">
         {allRepairs.map((repairObj) => {
           return (
-            <Repairs
+            <Repairs 
               staffMembers={staffMembers}
               repair={repairObj}
               key={repairObj.id}
               currentUser={currentUser}
               getAndSetRepairs={getAndSetRepairs}
+              className="repairs-card"
             />
           );
         })}

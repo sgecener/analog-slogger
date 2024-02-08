@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
+.cameraImages {
+    
+    width: 220px;
+    height: 170px;
+    
+}
+
+.price {
+    font-size: 20px;
+    margin-left: 1rem;
+}
+
+.repair-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+/* .camera-item {
+    justify-content: space-around;
+} */
+
+
+.horizontal-card {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+
+    justify-content: space-between; 
+  }
+  
+  .horizontal-card-body {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .horizontal-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 10px;
+  }
+
+  
+
+.camera-title {
+
+    padding-left: 10px;
+ 
+}
+

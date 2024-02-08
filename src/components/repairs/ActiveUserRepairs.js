@@ -8,7 +8,7 @@ export const ActiveUserRepairs = ({ currentUser }) => {
   const [allCameras, setAllCameras] = useState([]);
 
 
-  const userRepairs = allRepairs.filter((r) => r.userId == currentUser.id);
+  const userRepairs = allRepairs.filter((r) => r.userId === currentUser.id);
 
   const renderRepairs = () => {
     getAllRepairs().then((repairArr) => {
@@ -29,17 +29,18 @@ export const ActiveUserRepairs = ({ currentUser }) => {
   }, []);
 
   
+  
 
   return (
-    <div className="tickets-container">
+    <div className="customer-cont">
 
       <h2>My Repairs</h2>
 
-      <article className="tickets">
+      <article className="repairs-container">
         {userRepairs.map((repairObj) => {
-          let camera = allCameras.filter((cam) => cam.id == repairObj.cameraId);
+          let camera = allCameras.filter((cam) => cam.id === repairObj.cameraId);
           return (
-            <CustomerRepairs camera={camera} repairObj={repairObj} key={repairObj.id} renderRepairs={renderRepairs}/>
+            <CustomerRepairs  camera={camera} repairObj={repairObj} key={repairObj.id} renderRepairs={renderRepairs} className="repairs-card"/>
           );
         })}
       </article>

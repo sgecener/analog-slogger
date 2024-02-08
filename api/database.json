@@ -25,8 +25,8 @@
       "staff": false
     },
     {
-      "email": "sgecener@hotmail.com",
-      "name": "Saygin Gecener",
+      "email": "mo@gmail.com",
+      "name": "Mohsen Jalali",
       "staff": true,
       "id": 5
     }
@@ -35,33 +35,33 @@
     {
       "id": 1,
       "userId": 4,
-      "name": "Canon AE-1",
-      "type": "35mm Film",
-      "photo": "canon_ae1.jpg",
+      "name": "Canon A-1",
+      "type": "Single-Lens Reflex",
+      "photo": "assets/canon-A1.jpg",
       "price": 78
     },
     {
       "id": 2,
       "userId": 2,
       "name": "Nikon F3",
-      "type": "35mm Film",
-      "photo": "nikon_fm2.jpg",
+      "type": "Single-Lens Reflex",
+      "photo": "/assets/nikon_f3.jpeg",
       "price": 78
     },
     {
       "id": 3,
       "userId": 2,
       "name": "Pentax K1000",
-      "type": "35mm Film",
-      "photo": "pentax_k1000.jpg",
+      "type": "Single-Lens Reflex",
+      "photo": "/assets/pentaxk1000_noBack.png",
       "price": 60
     },
     {
       "id": 4,
       "userId": 4,
       "name": "Leica M6",
-      "type": "35mm Film",
-      "photo": "leica_m6.jpg",
+      "type": "Rangefinder",
+      "photo": "/assets/leica_m6_noBack.png",
       "price": 90
     },
     {
@@ -69,15 +69,15 @@
       "userId": 4,
       "name": "Hasselblad 500CM",
       "type": "120mm Medium Format",
-      "photo": "sony_a7iii.jpg",
+      "photo": "/assets/hasselblad500CM.jpg",
       "price": 120
     },
     {
       "id": 6,
       "userId": 2,
       "name": "Olympus Trip 35",
-      "type": "Point and Shoot",
-      "photo": "canon_eos_r5.jpg",
+      "type": "Rangefinder",
+      "photo": "assets/trip_35.jpg",
       "price": 50
     },
     {
@@ -85,7 +85,7 @@
       "userId": 4,
       "name": "Mamiya RB67",
       "type": "120mm Medium Format",
-      "photo": "nikon_z6.jpg",
+      "photo": "assets/mamiya_rb67.jpg",
       "price": 100
     }
   ],
@@ -93,11 +93,11 @@
     {
       "id": 1,
       "userId": 2,
-      "cameraId": 1,
       "staffId": 1,
+      "cameraId": 1,
       "description": "Shutter stuck",
       "rush": false,
-      "completed": true
+      "completed": false
     },
     {
       "id": 2,
@@ -111,18 +111,10 @@
     {
       "id": 3,
       "userId": 4,
-      "staffId": 5,
+      "staffId": null,
       "cameraId": 5,
       "description": "Fungus in viewfinder",
       "rush": false,
-      "completed": true
-    },
-    {
-      "id": 4,
-      "userId": 4,
-      "cameraId": 1,
-      "description": "Light leaks and slow shutter speed: check please!!",
-      "rush": true,
       "completed": false
     }
   ]

@@ -6,6 +6,8 @@ import { CameraCatalog } from "../components/cameras/CameraCatalog";
 import { RepairForm } from "../components/repairs/RepairForm";
 import { EditRepairForm } from "../components/repairs/EditRepairForm";
 import { Welcome } from "../components/Welcome";
+import logo from "../logo.png";
+import "../App.css";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -18,33 +20,44 @@ export const ApplicationViews = () => {
   }, []);
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <NavBar />
-            <Outlet />
-          </>
-        }
-      >
-        <Route index element={<Welcome />} />
-        <Route path="repairs">
-          <Route index element={<ActiveRepairs currentUser={currentUser} />} />
+    <div>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "left", textAlign: "center" }}>
+        <img className="img" src={logo} alt="logo" width={250} height={250} />
+        <span className="font">
+          <i>"Nurturing the Legacy, Preserving the Moments."</i>
+        </span>
+      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <NavBar />
+              <Outlet />
+            </>
+          }
+        >
+          <Route index element={<Welcome />} />
+          <Route path="repairs">
+            <Route
+              index
+              element={<ActiveRepairs currentUser={currentUser} />}
+            />
+            <Route
+              path=":repairId"
+              element={<EditRepairForm currentUser={currentUser} />}
+            />
+          </Route>
           <Route
-            path=":repairId"
-            element={<EditRepairForm currentUser={currentUser} />}
+            path="catalog"
+            element={<CameraCatalog currentUser={currentUser} />}
+          />
+          <Route
+            path="form/:cameraId"
+            element={<RepairForm currentUser={currentUser} />}
           />
         </Route>
-        <Route
-          path="catalog"
-          element={<CameraCatalog currentUser={currentUser} />}
-        />
-        <Route
-          path="form/:cameraId"
-          element={<RepairForm currentUser={currentUser} />}
-        />
-      </Route>
-    </Routes>
+      </Routes>
+    </div>
   );
 };

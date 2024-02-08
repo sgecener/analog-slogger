@@ -2,48 +2,55 @@ import { useEffect, useState } from "react";
 import { getAllCameras } from "../../services/cameraService";
 import { TypeFilter } from "./CameraTypeFilter";
 import { Cameras } from "./Cameras";
-
+import { Col, Container, Row } from "reactstrap";
+import "./Catalog.css";
 
 export const CameraCatalog = () => {
+  const [cameras, setCameras] = useState([]);
+  const [filteredCameras, setFilteredCameras] = useState([]);
+  const [typeSelect, setTypeSelect] = useState("All");
+  // unique types
+  const types = [...new Set(cameras.map((camera) => camera.type))];
 
-    const [cameras, setCameras] = useState([])
-    const [filteredCameras, setFilteredCameras] = useState([]);
-    const [typeSelect, setTypeSelect] = useState("All");
-    // unique types
-    const types = [...new Set(cameras.map(camera => camera.type))];
+  const renderCameras = () => {
+    getAllCameras().then((camerasArr) => {
+      setCameras(camerasArr);
+    });
+  };
 
-    const renderCameras = () => {
-        getAllCameras().then((camerasArr) => {
-            setCameras(camerasArr)
-        })
+  useEffect(() => {
+    renderCameras();
+  }, []);
+
+  useEffect(() => {
+    if (typeSelect !== "All") {
+      const filteredCameras = cameras.filter(
+        (camera) => camera.type === typeSelect
+      );
+      setFilteredCameras(filteredCameras);
+    } else {
+      setFilteredCameras(cameras);
     }
+  }, [typeSelect, cameras]);
 
-
-    useEffect(() => {
-        renderCameras();
-    }, []);
-
-    useEffect(() => {
-        if (typeSelect !== "All") {
-            const filteredCameras = cameras.filter(
-                (camera) => camera.type === typeSelect
-            );
-            setFilteredCameras(filteredCameras);
-        } else {
-            setFilteredCameras(cameras);
-        }
-    }, [typeSelect, cameras]);
-
-    return (
-        <section>
-            <h2>Repair Catalog</h2>
-            <TypeFilter setTypeSelect={setTypeSelect} types={types} />
-
-            <div>
-                {filteredCameras.map((cameraObj) => {
-                    return (<Cameras camera={cameraObj} key={cameraObj.id} renderCameras={renderCameras} />)
-                })}
-            </div>
-        </section>
-    )
-}
+  return (
+    <Container style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <Col>
+      <h2 style={{ fontSize: 40 }}>OUR CATALOG</h2>
+      <TypeFilter setTypeSelect={setTypeSelect} types={types} style={{ alignSelf: "center" }} />
+    </Col>
+    <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", flexWrap: "wrap" }}>
+      {filteredCameras.map((cameraObj) => {
+        return (
+          <Cameras
+            camera={cameraObj}
+            key={cameraObj.id}
+            renderCameras={renderCameras}
+            
+          />
+        );
+      })}
+    </div>
+  </Container>
+  );
+};
