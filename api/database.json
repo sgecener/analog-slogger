@@ -37,7 +37,7 @@
       "userId": 4,
       "name": "Canon A-1",
       "type": "Single-Lens Reflex",
-      "photo": "assets/canon-A1.jpg",
+      "photo": "/images/canon-A1.png",
       "price": 78
     },
     {
@@ -45,7 +45,7 @@
       "userId": 2,
       "name": "Nikon F3",
       "type": "Single-Lens Reflex",
-      "photo": "/assets/nikon_f3.jpeg",
+      "photo": "/images/nikon_f3.png",
       "price": 78
     },
     {
@@ -53,7 +53,7 @@
       "userId": 2,
       "name": "Pentax K1000",
       "type": "Single-Lens Reflex",
-      "photo": "/assets/pentaxk1000_noBack.png",
+      "photo": "/images/pentaxk1000_noBack.png",
       "price": 60
     },
     {
@@ -61,7 +61,7 @@
       "userId": 4,
       "name": "Leica M6",
       "type": "Rangefinder",
-      "photo": "/assets/leica_m6_noBack.png",
+      "photo": "/images/leica_m6_noBack.png",
       "price": 90
     },
     {
@@ -69,7 +69,7 @@
       "userId": 4,
       "name": "Hasselblad 500CM",
       "type": "120mm Medium Format",
-      "photo": "/assets/hasselblad500CM.jpg",
+      "photo": "/images/hasselblad500CM.png",
       "price": 120
     },
     {
@@ -77,7 +77,7 @@
       "userId": 2,
       "name": "Olympus Trip 35",
       "type": "Rangefinder",
-      "photo": "assets/trip_35.jpg",
+      "photo": "/images/trip_35.png",
       "price": 50
     },
     {
@@ -85,7 +85,7 @@
       "userId": 4,
       "name": "Mamiya RB67",
       "type": "120mm Medium Format",
-      "photo": "assets/mamiya_rb67.jpg",
+      "photo": "/images/mamiya_rb67.png",
       "price": 100
     }
   ],

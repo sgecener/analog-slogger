@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./Carousel.css"
 
 
-const Carousel = ({ images, interval = 4000}) => {
+const Carousel = ({ images, interval = 5000}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const nextSlide = () => {
     setActiveIndex((prevIndex) =>

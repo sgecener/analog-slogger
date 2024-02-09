@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 import { getAllCameras } from "../../services/cameraService";
 import { TypeFilter } from "./CameraTypeFilter";
 import { Cameras } from "./Cameras";
-import { Col, Container, Row } from "reactstrap";
+import { Col, Container } from "reactstrap";
 import "./Catalog.css";
+import { useNavigate } from "react-router-dom";
 
-export const CameraCatalog = () => {
+export const CameraCatalog = ({currentUser}) => {
   const [cameras, setCameras] = useState([]);
   const [filteredCameras, setFilteredCameras] = useState([]);
   const [typeSelect, setTypeSelect] = useState("All");
   // unique types
   const types = [...new Set(cameras.map((camera) => camera.type))];
+
+  const navigate = useNavigate()
 
   const renderCameras = () => {
     getAllCameras().then((camerasArr) => {
@@ -50,6 +53,9 @@ export const CameraCatalog = () => {
           />
         );
       })}
+    </div>
+    <div>
+        {!currentUser || !currentUser.staff  ? "" : <button onClick={() => navigate("/new")}>Add New Camera</button>}
     </div>
   </Container>
   );

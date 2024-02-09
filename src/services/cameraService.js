@@ -8,3 +8,15 @@ export const getAllCameras = () => {
 export const getCameraById = (id) => {
     return fetch(`http://localhost:8088/cameras/${id}`).then((res) => res.json());
 }
+
+
+export const postCamera = (camera) => {
+    return fetch("http://localhost:8088/cameras", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json" 
+        },
+        body: JSON.stringify(camera)
+        
+    })
+}

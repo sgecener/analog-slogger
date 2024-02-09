@@ -8,6 +8,7 @@ import { EditRepairForm } from "../components/repairs/EditRepairForm";
 import { Welcome } from "../components/Welcome";
 import logo from "../logo.png";
 import "../App.css";
+import { AddCamera } from "../components/cameras/add-camera/AddCamera";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -56,6 +57,7 @@ export const ApplicationViews = () => {
             path="form/:cameraId"
             element={<RepairForm currentUser={currentUser} />}
           />
+          <Route path="/new" element={<AddCamera />} />
         </Route>
       </Routes>
     </div>
