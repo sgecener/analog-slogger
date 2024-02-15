@@ -38,8 +38,8 @@ export const RepairForm = ({ currentUser }) => {
 
   return !currentUser || currentUser.staff ? (
     <div>
-      <div>Create a user account to send a repair order!</div>
-      <div>Please :<span>&#41;</span></div>
+      <div className="login-msg">Create a user account to send a repair order!</div>
+      <div className="login-msg">Please :<span>&#41;</span></div>
     </div>
   ) : (
     <form>

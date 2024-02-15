@@ -20,3 +20,13 @@ export const postCamera = (camera) => {
         
     })
 }
+
+export const editCamera = (camera) => {
+    return fetch(`http://localhost:8088/cameras/${camera.id}` , {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(camera),
+    }).then((res) => res.json());
+  }

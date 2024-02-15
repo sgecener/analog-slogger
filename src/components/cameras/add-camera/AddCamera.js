@@ -25,7 +25,6 @@ export const AddCamera = () => {
     e.preventDefault();
 
     const newCamera = {
-      userId: null,
       name: name,
       type: type,
       photo: photoData,
@@ -39,7 +38,7 @@ export const AddCamera = () => {
     <form className="form-group">
       <h1>Add New Camera</h1>
       <fieldset>
-        <UploadAndDisplayImage onUpload={(data) => setPhotoData(data)}/>
+        <UploadAndDisplayImage cameras={cameras} onUpload={(data) => setPhotoData(data)}/>
       </fieldset>
       <fieldset>
         <div>

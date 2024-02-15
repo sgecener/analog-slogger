@@ -10,6 +10,7 @@ export const CustomerRepairs = ({ camera, repairObj, renderRepairs }) => {
     deleteRepair(repairObj.id).then(() => {
       renderRepairs();
     });
+    
   };
 
   return (

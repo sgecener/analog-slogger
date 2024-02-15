@@ -9,6 +9,7 @@ import { Welcome } from "../components/Welcome";
 import logo from "../logo.png";
 import "../App.css";
 import { AddCamera } from "../components/cameras/add-camera/AddCamera";
+import { EditCamera } from "../components/cameras/EditCamera";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -22,7 +23,14 @@ export const ApplicationViews = () => {
 
   return (
     <div>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "left", textAlign: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "left",
+          textAlign: "center",
+        }}
+      >
         <img className="img" src={logo} alt="logo" width={250} height={250} />
         <span className="font">
           <i>"Nurturing the Legacy, Preserving the Moments."</i>
@@ -49,10 +57,16 @@ export const ApplicationViews = () => {
               element={<EditRepairForm currentUser={currentUser} />}
             />
           </Route>
-          <Route
-            path="catalog"
-            element={<CameraCatalog currentUser={currentUser} />}
-          />
+          <Route path="catalog">
+            <Route
+              index
+              element={<CameraCatalog currentUser={currentUser} />}
+            />
+            <Route
+              path=":camId"
+              element={<EditCamera currentUser={currentUser} />}
+            />
+          </Route>
           <Route
             path="form/:cameraId"
             element={<RepairForm currentUser={currentUser} />}

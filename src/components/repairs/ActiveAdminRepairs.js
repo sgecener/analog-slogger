@@ -28,7 +28,7 @@ export const ActiveAdminRepairs = ({ currentUser }) => {
 
   return (
     <div>
-      <h2 style={{ margin: 30, textAlign: "center"}}>Repairs</h2>
+      <h2 style={{ margin: 30, textAlign: "center", fontSize: 40}}>Repairs</h2>
 
       <article className="repairs-container">
         {allRepairs.map((repairObj) => {
