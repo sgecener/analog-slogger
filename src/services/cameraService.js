@@ -30,3 +30,13 @@ export const editCamera = (camera) => {
       body: JSON.stringify(camera),
     }).then((res) => res.json());
   }
+
+  export const deleteCamera = (id) => {
+
+    return fetch(`http://localhost:8088/cameras/${id}` , {
+        method: "DELETE"
+    }
+    ).then((res) => res.json())
+
+
+  }

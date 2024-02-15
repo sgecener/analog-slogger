@@ -95,11 +95,11 @@
     {
       "id": 2,
       "userId": 4,
-      "staffId": 1,
+      "staffId": null,
       "cameraId": 3,
       "description": "Light leaks and slow shutter",
       "rush": true,
-      "completed": true
+      "completed": false
     },
     {
       "id": 3,

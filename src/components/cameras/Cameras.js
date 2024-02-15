@@ -1,15 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardBody, CardFooter, CardTitle } from "reactstrap";
 import "./Catalog.css";
+import { deleteCamera } from "../../services/cameraService";
 
-export const Cameras = ({ camera, currentUser }) => {
+export const Cameras = ({ camera, currentUser, renderCameras }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate(`/form/${camera.id}`);
   };
 
-  return !currentUser.staff ? (
+  const handleDelete = () => {
+    deleteCamera(camera.id).then(() => {
+      renderCameras();
+    });
+  };
+
+  return !currentUser || !currentUser.staff ? (
     <Card className="horizontal-card">
       <CardBody className="horizontal-card-body">
         <img src={camera.photo} alt="" className="cameraImages" />
@@ -36,27 +43,25 @@ export const Cameras = ({ camera, currentUser }) => {
           </CardTitle>
           <span className="price">${camera.price}</span>
           <div>
-          <button
-            className="btn-secondary"
-            onClick={() => {
-              navigate(`/catalog/${camera.id}`);
-            }}
-          >
-            Edit
-          </button>
-          <button
-            className="btn-warning"
-            onClick={()=> {}}
-            style={{ margin: 15 }}
-          >
-            Delete
-          </button>
-        </div>
+            <button
+              className="btn-secondary"
+              onClick={() => {
+                navigate(`/catalog/${camera.id}`);
+              }}
+            >
+              Edit
+            </button>
+            <button
+              className="btn-warning"
+              onClick={handleDelete}
+              style={{ margin: 15 }}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </CardBody>
-      <CardFooter>
-        
-      </CardFooter>
+      <CardFooter></CardFooter>
     </Card>
   );
 };

@@ -49,7 +49,7 @@ export const CameraCatalog = ({ currentUser }) => {
           {!currentUser || !currentUser.staff ? (
             ""
           ) : (
-            <button onClick={() => navigate("/new")} className="btn-secondary">Add New Camera</button>
+            <button onClick={() => navigate("/new")} className="btn-info">Add New Camera</button>
           )}
         </span>
       </Col>
